@@ -4,6 +4,7 @@ import org.lenmint.trail.elements.Window;
 import org.lenmint.trail.jtx.JTXLayout;
 
 import java.io.*;
+import java.net.URL;
 
 public class Application extends Event {
 
@@ -32,15 +33,13 @@ public class Application extends Event {
 
     /// Set main layout file to render it
     public void setContent(String path) {
-        if (!path.startsWith("/")) {
-            path = "/" + path;
-        }
+        path = Helper.fixedPath(path);
 
         if (!path.endsWith("jtx")) {
             throw new IllegalArgumentException("File is not a `.jtx` file.");
         }
 
-        var content = getClass().getResource(path);
+        URL content = getClass().getResource(path);
 
         if (content != null) {
             try {
