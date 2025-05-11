@@ -4,5 +4,6 @@
     height="480" minHeight="400"
     
     resizeable="true"
-    centerOfScreen="true">
+    centerOfScreen="true"
+    icon="{@Resources(/images/icon.png)}">
 </Window>

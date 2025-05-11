@@ -20,7 +20,7 @@ public class Window extends Element {
 
     private float opacity = 1;
 
-    private ImageIcon icon;
+    private ImageIcon icon = new ImageIcon();
     private Cursor cursor;
     private Color background = Color.white;
     private Locale locale = Locale.ENGLISH;
@@ -61,7 +61,7 @@ public class Window extends Element {
         jFrame.setMinimumSize(new Dimension(minWidth, minHeight));
         jFrame.setMaximumSize(new Dimension(maxWidth, maxHeight));
         jFrame.pack();
-
+        
         if (centerOfScreen) {
             jFrame.setLocationRelativeTo(null);
         }
@@ -72,6 +72,9 @@ public class Window extends Element {
         jFrame.setFocusable(focusable);
         jFrame.setAlwaysOnTop(alwaysOnTop);
         jFrame.setCursor(cursor);
+
+        jFrame.setIconImage(icon.getImage());
+        jFrame.setFont(font);
 
         // TEMPORARY: Show Window
         jFrame.setVisible(true);
